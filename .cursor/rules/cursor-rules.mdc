@@ -1,0 +1,52 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## 🧠 Cursor Rules para Projetos Laravel + Blade + Bootstrap
+
+### 🔧 PHP / Laravel Rules
+
+1. Sempre aplicar o padrão PSR-12 ao gerar ou refatorar código PHP.
+2. Preferir controllers do tipo `resource` sempre que possível.
+3. Criar classes de Form Request separadas para validações em controllers.
+4. Usar `Route::resource()` para rotas REST.
+5. Nomear métodos seguindo o padrão REST (index, store, update, destroy, etc).
+6. Adicionar tipagem em todos os métodos públicos.
+7. Utilizar o helper `__()` para strings que podem ser traduzidas.
+8. Evitar lógica complexa nas views. Delegar para o controller ou view model.
+
+---
+
+### 📝 Blade Rules
+
+1. Associar arquivos `.blade.php` ao modo HTML e Emmet para autocompletar correto.
+2. Sempre usar `@extends`, `@section`, `@yield` e `@include` para organização.
+3. Utilizar componentes Blade (`<x-*>`) para elementos reutilizáveis.
+4. Separar formulários em partials Blade (`_form.blade.php`).
+5. Manter indentação de 4 espaços e HTML limpo.
+6. Usar `@csrf` e `@method` corretamente em formulários.
+7. Adotar `@props` em componentes personalizados.
+
+---
+
+### 🎨 Bootstrap Rules
+
+1. Utilizar classes utilitárias como `mb-3`, `p-2`, `text-center` ao invés de CSS customizado.
+2. Preferir estrutura com `container`, `row`, `col-*` para layout responsivo.
+3. Utilizar componentes Bootstrap sempre que possível: alert, modal, card, etc.
+4. Usar formulários Bootstrap com `form-group`, `form-control`, `btn`, etc.
+5. Evitar duplicar estilos inline; usar classes utilitárias para consistência.
+6. Usar ícones de biblioteca (como Bootstrap Icons ou FontAwesome) com semântica.
+
+---
+
+### 💡 Extras para Eficiência no Cursor
+
+1. Sugira nome de arquivos e pastas seguindo convenção Laravel (ex: `UserController`, `create.blade.php`).
+2. Ao gerar CRUDs, crie: migration, model, factory, seeder, controller e views.
+3. Incluir breadcrumbs e navegação básica no layout principal.
+4. Padronizar nome de rotas usando `route('despesas.index')`, etc.
+5. Gerar views com estrutura Bootstrap pronta (container, rows, cards, etc).
+6. Sempre que possível, sugerir testes unitários ou de feature junto ao código gerado.
+

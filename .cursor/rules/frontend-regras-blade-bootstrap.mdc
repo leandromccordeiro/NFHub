@@ -1,0 +1,96 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🧩 Regras de Desenvolvimento Frontend – Blade + Bootstrap
+
+Este guia contém diretrizes para organizar e manter boas práticas no desenvolvimento do frontend com Blade (Laravel) e Bootstrap (v5+).
+
+---
+
+## 🧱 Estrutura e Organização
+
+1. **Utilizar `@extends`, `@section`, `@yield` e `@include` corretamente**  
+   - Criar layouts reutilizáveis (ex: `layouts.app`) e estender nas views.  
+   - Evitar repetição de código como menus, headers, footers, e mensagens flash.
+
+2. **Organizar os arquivos Blade em subpastas lógicas**
+   - Ex: `resources/views/cashflow/index.blade.php`, `resources/views/components/card.blade.php`
+
+3. **Seguir convenções de nomenclatura claras e consistentes**
+   - Nomes em `snake_case` para arquivos e `camelCase` para variáveis no Blade.
+
+---
+
+## 🎨 Uso do Bootstrap (v5+)
+
+4. **Utilizar corretamente as classes utilitárias do Bootstrap**
+   - Evitar CSS customizado para margens, espaçamentos, textos, cores, etc.
+   - Ex: `class="mb-4 text-center text-muted"`
+
+5. **Aproveitar os componentes prontos do Bootstrap**
+   - Cards, Modals, Alerts, Badges, Navs, Forms, etc.
+
+6. **Usar grid system (container, row, col) para layout responsivo**
+   - Ex: `col-md-6 col-lg-4 mb-3`
+   - Layout mobile-first garantido.
+
+---
+
+## 🧼 Boas práticas no Blade
+
+7. **Evitar lógica excessiva no Blade**
+   - Usar somente `@if`, `@foreach`, `@isset`.  
+   - Regras complexas devem estar no Controller ou ViewModel.
+
+8. **Escapar variáveis sempre com `{{ }}`**
+   - Usar `{!! !!}` apenas para HTML seguro e validado.
+
+9. **Utilizar components e slots do Blade para elementos repetidos**
+   - Ex: `<x-card title="Título" :data="$data" />`
+
+---
+
+## 🧠 UX e Acessibilidade
+
+10. **Exibir feedback visual claro**
+    - Usar `alert-success`, `alert-danger`, loaders, etc.
+
+11. **Usar placeholders, tooltips e mensagens claras**
+
+12. **Sempre rotular os campos de formulário com `<label for="">`**
+    - Melhora a acessibilidade e usabilidade.
+
+---
+
+## 🔄 Integração e Reutilização
+
+13. **Reutilizar views com `@include`**
+    - Ex: `@include('cashflow.partials.form')`
+
+14. **Separar comportamento interativo com Bootstrap JS**
+    - Usar `data-bs-toggle`, `data-bs-target` corretamente.
+
+---
+
+## 📁 Estrutura de Pastas Sugerida
+
+```
+resources/views/
+├── layouts/
+│   └── app.blade.php
+├── components/
+│   └── card.blade.php
+├── cashflow/
+│   ├── index.blade.php
+│   ├── create.blade.php
+│   └── partials/
+│       └── form.blade.php
+└── dashboard.blade.php
+```
+
+---
+
+**Revisado em:** 25/03/2025  
+**Tecnologias:** Laravel Blade, Bootstrap 5  

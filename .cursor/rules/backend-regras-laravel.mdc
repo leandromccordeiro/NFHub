@@ -1,0 +1,98 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 🛠️ Regras de Desenvolvimento Backend – Laravel
+
+Este guia define boas práticas, organização e padrões de código para desenvolvimento backend com Laravel.
+
+---
+
+## 🗂️ Organização do Projeto
+
+1. **Seguir a estrutura padrão do Laravel**
+   - Controllers: `app/Http/Controllers/`
+   - Models: `app/Models/`
+   - Migrations: `database/migrations/`
+   - Seeders: `database/seeders/`
+   - Requests: `app/Http/Requests/`
+   - Policies: `app/Policies/`
+
+2. **Agrupar funcionalidades em módulos/domínios se necessário**
+   - Ex: `app/Http/Controllers/Cashflow/`, `app/Services/Cashflow/`
+
+3. **Utilizar PSR-4 para autoload e nomes de classes**
+   - Nome das classes devem refletir sua função e contexto.
+
+---
+
+## ✅ Boas Práticas Gerais
+
+4. **Utilizar Eloquent para interações com o banco**
+   - Evitar SQL bruto, exceto em casos específicos.
+
+5. **Validar dados sempre com Form Requests**
+   - Ex: `StoreExpenseRequest`, `UpdateUserRequest`
+
+6. **Aplicar Injeção de Dependência nos controllers e services**
+   - Evitar chamadas diretas a `new`.
+
+7. **Separar regras de negócio complexas em Services ou Actions**
+   - Controllers devem ser enxutos e focados em entrada/saída.
+
+---
+
+## 🔒 Segurança
+
+8. **Usar `fillable` ou `guarded` nos Models**
+   - Prevenir mass assignment.
+
+9. **Sempre sanitizar e validar dados do usuário**
+   - Especialmente inputs usados em consultas ou views.
+
+10. **Utilizar policies ou gates para autorização**
+    - Ex: `authorize('update', $expense);`
+
+---
+
+## 🧪 Testes
+
+11. **Escrever testes automatizados para lógica crítica**
+    - Usar `Feature` para fluxo de usuário e `Unit` para regras de negócio.
+
+12. **Nomear testes com clareza e descrever o comportamento esperado**
+    - Ex: `test_user_can_create_expense()`.
+
+---
+
+## 🧰 Artisan e Convenções
+
+13. **Usar comandos Artisan para gerar arquivos**
+    - Ex: `php artisan make:model`, `php artisan make:controller`
+
+14. **Seguir convenções de nomenclatura**
+    - Models: singular (`Expense`)
+    - Controllers: plural (`ExpensesController` ou `ExpenseController`)
+    - Tabelas: plural snake_case (`expenses`)
+
+15. **Migrar e versionar o banco corretamente**
+    - Usar migrations pequenas, claras e reversíveis.
+
+---
+
+## 📦 Outros
+
+16. **Utilizar seeders e factories para dados de teste**
+    - Ex: `ExpenseSeeder`, `UserFactory`
+
+17. **Configurar e usar `.env` para separação de ambientes**
+    - Nunca versionar `.env` no Git.
+
+18. **Usar helpers do Laravel sempre que possível**
+    - Ex: `route()`, `auth()`, `now()`, `asset()`.
+
+---
+
+**Revisado em:** 25/03/2025  
+**Tecnologias:** Laravel 11+, PHP 8+
